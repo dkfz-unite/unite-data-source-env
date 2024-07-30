@@ -1,0 +1,26 @@
+version: "3.5"
+services:
+  source.data.unite.net:
+    image: ghcr.io/dkfz-unite/unite-data-source:latest
+    container_name: unite.data.source
+    restart: unless-stopped
+    environment:
+      UNITE_API_KEY: ${API_KEY}
+      UNITE_WORKER_HOST: source.data.unite.net
+      UNITE_WORKER_TOKEN: worker_token
+      UNITE_PORTAL_HOST: portal.unite.net
+      UNITE_CONFIG_PATH: /app/config
+      UNITE_CACHE_PATH: /app/cache
+      UNITE_DATA_PATH: /data
+      ASPNETCORE_ENVIRONMENT: Release
+    ports: 
+      - 127.0.0.1:5300:80
+    volumes:
+      - ./config:/app/config
+      - ./cache:/app/cache
+      - /mnt:/data
+
+networks: 
+  default:
+    name: unite
+    external: true

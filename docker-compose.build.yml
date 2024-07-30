@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  source.data.unite.net:
+    extends:
+      file: docker-compose.yml
+      service: source.data.unite.net
+    build: 
+      context: ./src
+      dockerfile: ./Dockerfile
+      args: 
+        USER: ${GITHUB_USER}
+        TOKEN: ${GITHUB_TOKEN}
+    image: unite.data.source
+
+networks: 
+  default:
+    name: unite
+    external: true
