@@ -1,4 +1,4 @@
-# unite-data-source-environment
+# Unite Data Source Environment
 UNITE data source service installation scripts and configuration files.
 
 ### Installation
