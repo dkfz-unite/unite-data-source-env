@@ -10,7 +10,7 @@ services:
       UNITE_WORKER_TOKEN: 
       UNITE_PORTAL_HOST: portal.unite.net
       UNITE_CONFIG_PATH: /srv/config
-      UNITE_CACHE_PATH: /stv/cache
+      UNITE_CACHE_PATH: /srv/cache
       UNITE_DATA_PATH: /mnt
       ASPNETCORE_ENVIRONMENT: Release
     ports: 
