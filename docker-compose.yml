@@ -14,7 +14,7 @@ services:
       UNITE_DATA_PATH: /mnt
       ASPNETCORE_ENVIRONMENT: Release
     ports: 
-      - 127.0.0.1:5300:80
+      - 127.0.0.1:5400:80
     volumes:
       - ./config:/srv/config
       - ./cache:/srv/cache
