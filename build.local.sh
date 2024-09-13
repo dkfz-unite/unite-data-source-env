@@ -1,5 +1,6 @@
 #!/bin/bash
 
+src_pth=$(jq -r .SourceCodeDirectoryPath ../../config.json)
 ghb_usr=$(jq -r .github.user ../../secrets.json)
 ghb_tkn=$(jq -r .github.token ../../secrets.json)
 api_key=$(jq -r .api.key ../../secrets.json)
