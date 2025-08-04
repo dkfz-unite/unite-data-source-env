@@ -7,5 +7,4 @@ Configuration of the service maintains general [structure](https://github.com/dk
 To configure the application:
 1. Clone the source code to `plugins` folder of UNITE environment.
 2. Provide valid JWT token for the application changing `UNITE_WORKER_TOKEN` in `docker-compose.yml` file.
-3. Mount ODCF data to the server running `mount.sh` script.
-4. Run 'deploy.sh' script to start the service.
+3. Run 'deploy.sh' script to start the service.
