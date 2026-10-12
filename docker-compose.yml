@@ -5,7 +5,7 @@ services:
     container_name: unite.data.source
     restart: unless-stopped
     environment:
-      UNITE_API_KEY: ${API_KEY}
+      UNITE_API_KEY: ${UNITE_API_KEY}
       UNITE_WORKER_HOST: source.data.unite.net
       UNITE_WORKER_TOKEN: 
       UNITE_PORTAL_HOST: portal.unite.net
