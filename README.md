@@ -27,7 +27,7 @@ To configure the application:
    remote-build script does not process a branch argument.
 
 Scripts pass the installation's `.env` and `.env.secrets` (two levels above
-this directory) to Docker Compose; local builds also read `config.json` there. Compose joins external Docker network `unite`.
+this directory) to Docker Compose; local builds copy the source from `$UNITE_SOURCE_PATH`. Compose joins external Docker network `unite`.
 The current example mounts `config/`, `cache/`, and host `/mnt`; it publishes
 the service on host loopback port 5400. Check these settings and advertised
 resource URLs for the actual deployment; the scripts were read but not run
