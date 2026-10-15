@@ -21,13 +21,15 @@ To configure the application:
 2. Provide valid JWT token for the application changing `UNITE_WORKER_TOKEN` in `docker-compose.yml` file.
 3. Set portal/worker addresses and configure source-data, config, and tracking
    cache mounts for the chosen installation.
-4. Run scripts through `sh` from this directory. The provided `deploy.sh`,
-   `build.remote.sh`, and `build.local.sh` select a published image, remote
-   source, or local source respectively and start the service. The current
-   remote-build script does not process a branch argument.
+4. Run scripts through `sh` from this directory: `deploy.sh` (published
+   image), `build.remote.sh [branch]` (clone and build) or `build.local.sh`
+   (local source). They call the shared scripts in `unite-env/scripts/app/`
+   with service key `data-source` and Compose project `unite-plugins`; source
+   path, repository URL and default branch come from `UNITE_DATA_SOURCE_*` in
+   the installation's `.env.services`.
 
-Scripts read installation `secrets.json` and, for local builds, `config.json`
-two levels above this directory. Compose joins external Docker network `unite`.
+Scripts pass the installation's `.env` and `.env.secrets` (two levels above
+this directory) to Docker Compose. Compose joins external Docker network `unite`.
 The current example mounts `config/`, `cache/`, and host `/mnt`; it publishes
 the service on host loopback port 5400. Check these settings and advertised
 resource URLs for the actual deployment; the scripts were read but not run

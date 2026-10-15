@@ -1,24 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-src_pth=$(jq -r .SourceCodeDirectoryPath ../../config.json)
-ghb_usr=$(jq -r .github.user ../../secrets.json)
-ghb_tkn=$(jq -r .github.token ../../secrets.json)
-api_key=$(jq -r .api.key ../../secrets.json)
-
-tput setaf 6; echo "# Installing UNITE Data Source service"; tput sgr0
-echo ""
-
-tput setaf 4; echo "# Cleaning up source code directory"; tput sgr0
-rm -r -f src
-echo ""
-
-tput setaf 4; echo "# Cloning fresh code to source code directory"; tput sgr0
-mkdir src
-cp -r $src_pth/unite-data-source/. src/
-echo ""
-
-tput setaf 4; echo "# Building and running docker image"; tput sgr0
-GITHUB_USER=$ghb_usr \
-GITHUB_TOKEN=$ghb_tkn \
-API_KEY=$api_key \
-docker compose -p '' -f docker-compose.build.yml up -d --build
+UNITE_PROJECT=unite-plugins sh ../../scripts/app/build.local.sh data-source
