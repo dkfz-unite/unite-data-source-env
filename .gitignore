@@ -1,0 +1,6 @@
+**/data
+**/cache
+**/src
+**/mnt
+**/.DS_Store
+docker-compose.override.yml
