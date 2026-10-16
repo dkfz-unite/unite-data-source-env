@@ -26,10 +26,10 @@ To configure the application:
    (local source). They call the shared scripts in `unite-env/scripts/app/`
    with service key `data-source` and Compose project `unite-plugins`; source
    path, repository URL and default branch come from `UNITE_DATA_SOURCE_*` in
-   the installation's `.env.services`.
+   the installation's `.env` (override them in its `.env.local`).
 
-Scripts pass the installation's `.env` and `.env.secrets` (two levels above
-this directory) to Docker Compose. Compose joins external Docker network `unite`.
+Scripts pass the installation's `.env`, `.env.local` (if it exists) and
+`.env.secrets` (two levels above this directory) to Docker Compose. Compose joins external Docker network `unite`.
 The current example mounts `config/`, `cache/`, and host `/mnt`; it publishes
 the service on host loopback port 5400. Check these settings and advertised
 resource URLs for the actual deployment; the scripts were read but not run
