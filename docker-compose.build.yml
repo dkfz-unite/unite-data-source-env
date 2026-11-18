@@ -5,5 +5,10 @@ services:
       dockerfile: ./Dockerfile
       args:
         USER: ${UNITE_GITHUB_USER}
-        TOKEN: ${UNITE_GITHUB_TOKEN}
+      secrets:
+        - github_token
     image: unite.data.source
+
+secrets:
+  github_token:
+    environment: UNITE_GITHUB_TOKEN
